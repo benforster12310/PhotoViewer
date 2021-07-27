@@ -1,6 +1,6 @@
 {
   "name": "photoviewer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "An Electron Project To Slideshow Photos and View Photos",
   "main": "main.js",
   "scripts": {
@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/benforster12310/PhotoViewer#readme",
   "dependencies": {
-    "electron": "^13.1.7",
     "is-image": "^3.0.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "electron": "^13.1.7",
+    "electron-packager": "^15.3.0"
   }
 }

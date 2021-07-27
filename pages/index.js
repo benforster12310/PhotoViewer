@@ -21,6 +21,7 @@ var currentImageIndex = 0;
 var secondsOnImage = 5;
 var loop = true;
 var isPaused = true;
+var intervalId;
 
 let isToolbarVisible = true;
 let hideToolbarBtn = document.getElementById("hideToolbarBtn")
@@ -104,7 +105,12 @@ function loadCurrentImage() {
 }
 
 let backBtn = document.getElementById("backBtn");
-backBtn.addEventListener("click", backImg)
+backBtn.addEventListener("click", function() {
+    if(!isPaused) {
+        playPause()
+    }
+    backImg()
+})
 
 function backImg() {
     if(currentImageIndex == 0 && loop) {
@@ -120,7 +126,12 @@ function backImg() {
 }
 
 let nextBtn = document.getElementById("nextBtn");
-nextBtn.addEventListener("click", nextImg)
+nextBtn.addEventListener("click", function() {
+    if(!isPaused) {
+        playPause()
+    }
+    nextImg()
+})
 
 function nextImg() {
     if(currentImageIndex == imageArray.length-1 && loop) {
@@ -131,6 +142,7 @@ function nextImg() {
     }
     else {
         alert("This Is The End Of The Slideshow")
+        clearInterval(intervalId);
     }
     loadCurrentImage()
 }
@@ -140,5 +152,14 @@ let playPauseBtn = document.getElementById("playPauseBtn");
 playPauseBtn.addEventListener("click", playPause);
 
 function playPause() {
-    
+    if(isPaused) {
+        playPauseBtn.innerHTML = "Pause"
+        intervalId = setInterval(nextImg, secondsOnImage * 1000)
+        isPaused = false;
+    }
+    else {
+        playPauseBtn.innerHTML = "Play"
+        clearInterval(intervalId)
+        isPaused = true;
+    }
 }
