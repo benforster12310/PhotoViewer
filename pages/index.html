@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../common_files/bootstrap.css">
+        <link rel="stylesheet" href="../common_files/modal.css">
+        <link rel="stylesheet" href="../common_files/stylesheet.css">
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <div class="topInlineDiv" id="toolbar">
+            <button class="btn button" id="hideToolbarBtn">Hide Toolbar</button>
+            <button class="btn button" id="addFilesBtn">Add Files</button>
+            <button class="btn button" id="addFolderBtn">Add Folder</button>
+            <button class="btn button" id="openSettingsBtn">Settings</button>
+            <button class="btn button" id="restartSlideshowBtn">Restart</button>
+            <br/>
+            <br/>
+        </div>
+        <div class="topInlineDiv" style="font-size:60%;" id="controls">
+            <button class="btn button" style="width: 33.1%" id="backBtn">&#9204;</button>
+            <button class="btn button" style="width: 33.1%" id="playPauseBtn">Play</button>
+            <button class="btn button" style="width: 33.1%" id="nextBtn">&#9205;</button>
+        </div>
+        <img alt="404 - ImageNotFound - load some images" id="img" class="imageCentered">
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <button id="close" class="close">&times;</button>
+                <br/>
+                <h1 class="header">Settings</h1>
+                <br/>
+                <br/>
+                <label class="label" for="settings_secondsOnImage">Time(s) Spent On Each Image:</label>
+                <input class="settingsTextField" type="number" min="0.1" value="5" id="settings_secondsOnImage">
+                <br/>
+                <br/>
+                <label class="label" for="settings_loop">Loop Slideshow:</label>
+                <input class="settingsTextField" style="height: 60px;" type="checkbox" id="settings_loop" checked>
+                <br/>
+                <br/>
+                <button class="btn button fullWidth" id="saveSettingsBtn">Save Settings</button>
+            </div>
+        </div>
+    </body>
+</html>
